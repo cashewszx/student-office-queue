@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Queue System | Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        if (
+            sessionStorage.getItem("loggedIn") !== "true" ||
+            !["admin", "student"].includes(sessionStorage.getItem("userRole"))
+        ) {
+            window.location.replace("index.html");
+        }
+    </script>
+</head>
+<body>
+    <header class="topbar">
+        <div>
+            <h1>Student Queue System</h1>
+            <p>Student Office Queue Management System</p>
+        </div>
+
+        <div class="user-info">
+            <span id="welcomeUser">Welcome!</span>
+            <span id="roleBadge" class="role-badge">STUDENT</span>
+            <button id="logoutBtn" class="logout-btn">Logout</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="welcome-panel">
+            <div>
+                <h2>Queue Management Dashboard</h2>
+                <p>Manage student office queues in one place.</p>
+            </div>
+            <div id="currentDate" class="date-display"></div>
+        </section>
+
+        <section class="stats-grid">
+            <article class="stat-card">
+                <p>Total Queues</p>
+                <h2 id="totalCount">0</h2>
+            </article>
+            <article class="stat-card">
+                <p>Waiting</p>
+                <h2 id="waitingCount">0</h2>
+            </article>
+            <article class="stat-card">
+                <p>Now Serving</p>
+                <h2 id="servingCount">0</h2>
+            </article>
+            <article class="stat-card">
+                <p>Completed</p>
+                <h2 id="completedCount">0</h2>
+            </article>
+        </section>
+
+        <section class="content-grid">
+            <article class="panel">
+                <h2>Register for a Queue</h2>
+                <p class="panel-description">Enter your details to get a queue number.</p>
+
+                <form id="queueForm">
+                    <label for="studentName">Full Name</label>
+                    <input id="studentName" type="text" required>
+
+                    <label for="yearLevel">Year Level</label>
+                    <select id="yearLevel" required>
+                        <option value="">Select year level</option>
+                        <option value="1st Year">1st Year</option>
+                        <option value="2nd Year">2nd Year</option>
+                        <option value="3rd Year">3rd Year</option>
+                        <option value="4th Year">4th Year</option>
+                        <option value="5th Year">5th Year</option>
+                    </select>
+
+                    <label for="section">Section</label>
+                    <input id="section" type="text" placeholder="e.g. BSIT 2A" required>
+
+                    <label for="officeSelect">Office to Visit</label>
+                    <select id="officeSelect" required>
+                        <option value="">Select an office</option>
+                        <option value="Registrar">Registrar</option>
+                        <option value="Cashier">Cashier</option>
+                        <option value="Guidance Office">Guidance Office</option>
+                        <option value="Admission Office">Admission Office</option>
+                        <option value="Student Affairs">Student Affairs</option>
+                        <option value="Other">Other</option>
+                    </select>
+
+                    <label for="purpose">Purpose of Visit</label>
+                    <textarea id="purpose" rows="3" required></textarea>
+
+                    <button type="submit" class="primary-btn">Get Queue Number</button>
+                </form>
+
+                <div id="newQueueResult" class="queue-result" hidden>
+                    <p>Your queue number is</p>
+                    <h2 id="newQueueNumber">Q-001</h2>
+                    <p>Please wait for your number to be called.</p>
+                </div>
+            </article>
+
+            <article class="panel">
+                <div class="panel-heading">
+                    <div>
+                        <h2>Queue List</h2>
+                        <p class="panel-description">Track the status of each queue.</p>
+                    </div>
+                    <button id="exportBtn" class="secondary-btn">Export CSV</button>
+                </div>
+
+                <div class="filter-row">
+                    <input id="searchInput" type="search" placeholder="Search name, section, or queue number...">
+                    <select id="statusFilter">
+                        <option value="all">All Statuses</option>
+                        <option value="waiting">Waiting</option>
+                        <option value="serving">Serving</option>
+                        <option value="completed">Completed</option>
+                        <option value="cancelled">Cancelled</option>
+                    </select>
+                </div>
+
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Queue No.</th>
+                                <th>Student</th>
+                                <th>Year & Section</th>
+                                <th>Office</th>
+                                <th>Status</th>
+                                <th>Elapsed Time</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="queueTableBody"></tbody>
+                    </table>
+                </div>
+                <p id="emptyMessage" class="empty-message">No queue records yet.</p>
+            </article>
+        </section>
+
+        <section class="admin-panel panel" id="adminPanel" hidden>
+            <div>
+                <h2>Administrator Controls</h2>
+                <p>Only the administrator can remove all queue records.</p>
+            </div>
+            <button id="clearAllBtn" class="danger-btn">Delete All Queue Records</button>
+        </section>
+
+        <p class="bottom-note">Student Office Queue Management System</p>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

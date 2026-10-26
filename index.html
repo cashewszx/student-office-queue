@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Queue System | Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <main class="auth-container">
+        <section class="auth-card">
+            <div class="logo">SQS</div>
+            <h1>Student Queue System</h1>
+            <p class="subtitle">Student Office Queue Management System</p>
+
+            <p id="message" class="message" aria-live="polite"></p>
+
+            <form id="loginForm">
+                <h2>Welcome Back!</h2>
+                <p class="description">Log in to continue.</p>
+
+                <label for="loginUsername">Username</label>
+                <input id="loginUsername" type="text" autocomplete="username" required>
+
+                <label for="loginPassword">Password</label>
+                <input id="loginPassword" type="password" autocomplete="current-password" required>
+
+                <button class="primary-btn" type="submit">Login</button>
+
+                <p class="switch-text">
+                    Don't have an account?
+                    <button type="button" id="showRegister" class="text-btn">Register here</button>
+                </p>
+            </form>
+
+            <form id="registerForm" hidden>
+                <h2>Create Account</h2>
+                <p class="description">Register to use the queue system.</p>
+
+                <label for="registerFullName">Full Name</label>
+                <input id="registerFullName" type="text" autocomplete="name" required>
+
+                <label for="registerUsername">Username</label>
+                <input id="registerUsername" type="text" minlength="3" autocomplete="username" required>
+
+                <label for="registerPassword">Password</label>
+                <input id="registerPassword" type="password" minlength="6" autocomplete="new-password" required>
+
+                <label for="confirmPassword">Confirm Password</label>
+                <input id="confirmPassword" type="password" minlength="6" autocomplete="new-password" required>
+
+                <button class="primary-btn" type="submit">Create Account</button>
+
+                <p class="switch-text">
+                    Already registered?
+                    <button type="button" id="showLogin" class="text-btn">Log in here</button>
+                </p>
+            </form>
+
+            <p class="footer-text">© 2026 Student Office Queue Management System</p>
+        </section>
+    </main>
+    <script src="login.js"></script>
+</body>
+</html>

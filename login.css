@@ -1,0 +1,156 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #eee7ff, #f8f5ff);
+    color: #302747;
+    min-height: 100vh;
+}
+
+.auth-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 430px;
+    background: white;
+    padding: 32px;
+    border-radius: 18px;
+    box-shadow: 0 10px 35px rgba(62, 42, 100, 0.12);
+}
+
+.logo {
+    width: 62px;
+    height: 62px;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 18px;
+    border-radius: 16px;
+    background: #7554c8;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 23px;
+    margin-bottom: 8px;
+}
+
+h2 {
+    font-size: 21px;
+    margin-bottom: 8px;
+}
+
+.subtitle,
+.description {
+    color: #80788f;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.subtitle {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.description {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 15px 0 7px;
+}
+
+input {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ddd5ed;
+    border-radius: 9px;
+    outline: none;
+    font-size: 15px;
+}
+
+input:focus {
+    border-color: #7554c8;
+    box-shadow: 0 0 0 3px rgba(117, 84, 200, 0.12);
+}
+
+.primary-btn {
+    width: 100%;
+    margin-top: 22px;
+    padding: 14px;
+    border: none;
+    border-radius: 9px;
+    background: #7554c8;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.primary-btn:hover {
+    background: #6241b3;
+}
+
+.switch-text {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.text-btn {
+    border: none;
+    background: none;
+    color: #7554c8;
+    font-size: inherit;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.text-btn:hover {
+    text-decoration: underline;
+}
+
+.message {
+    margin-bottom: 12px;
+    text-align: center;
+    font-size: 13px;
+    color: #b42318;
+    line-height: 1.5;
+}
+
+.message.success {
+    color: #16803c;
+}
+
+.footer-text {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 11px;
+    color: #938ba2;
+}
+
+@media (max-width: 480px) {
+    .auth-card {
+        padding: 25px 20px;
+    }
+}
